@@ -10,6 +10,7 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var count = 0;
 
+
 io.on('connection', function (socket) {
     socket.emit('send:message', {
             firstName: 'Olivier',

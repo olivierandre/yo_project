@@ -5,7 +5,7 @@
     "Olivier Andre <olivier.andre77@gmail.com>"
   ],
   "description": "Blog travel",
-  "main": "app.js",
+  "main": "./public/scripts/**/*.js",
   "keywords": [
     "blog",
     "travel"

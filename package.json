@@ -15,6 +15,10 @@
   },
   "devDependencies": {
     "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.0.2",
+    "gulp-header": "^1.7.1",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-ng-constant": "^1.1.0",
     "gulp-nodemon": "^2.0.4",
     "gulp-sass": "^2.0.4",
     "wiredep": "^2.2.2"

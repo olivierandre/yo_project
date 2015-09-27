@@ -1,10 +1,14 @@
 'use strict';
 
-var gulp = require('gulp');
-var wiredep = require('wiredep').stream;
-var sass = require('gulp-sass');
-var nodemon = require('gulp-nodemon');
-var config = require('./config/config');
+var gulp = require('gulp'),
+    plugins = require('gulp-load-plugins')(),
+    wiredep = require('wiredep').stream,
+    nodemon = require('gulp-nodemon'),
+    config = require('./config/config'),
+    global = config.global,
+    header = require('gulp-header'),
+    fs = require('fs'),
+    env;
 
 //  Gulp Sass
 var input = './stylesheets/**/*.scss';
@@ -14,13 +18,22 @@ var sassOptions = {
     outputStyle: 'expanded'
 };
 
-gulp.task('sass', function () {
-    return gulp
-        .src(input)
-        .pipe(sass(sassOptions).on('error', sass.logError))
-        .pipe(gulp.dest(output));
+gulp.task('development', function () {
+    env = 'dev';
+    config = config[env];
+    plugins.env = env;
+    plugins.config = config;
 });
 
+gulp.task('production', function () {
+    env = 'prod';
+    config = config[env];
+    plugins.env = env;
+    plugins.config = config;
+});
+
+gulp.task('sass', require('./tasks/sass/sass')(gulp, plugins, input, output, sassOptions));
+gulp.task('config', require('./tasks/config/config')(gulp, plugins, require('./config/constant.json'), global.angular.name));
 
 gulp.task('wiredep', function () {
     gulp.src('./public/index.html')
@@ -39,20 +52,33 @@ gulp.task('watch', function () {
         });
 });
 
-gulp.task('server', function() {
+gulp.task('server', function () {
     return nodemon({
         script: 'server.js',
         ext: 'js html',
         ignore: ['./public'],
         env: {
-            'NODE_ENV': 'dev',
-            'PORT' : config.server.port
+            'NODE_ENV': env,
+            'PORT': config.server.port
         }
-    });
-})
 
-gulp.task('default', ['wiredep', 'sass', 'server'], function () {
-    gulp.watch(input, ['sass']);
+    });
 
 });
+
+gulp.task('header', function () {
+    var pkg = require('./package.json');
+    var file = fs.readFileSync('header.txt', 'utf8');
+    gulp.src('./public/scripts/**/*.js')
+        .pipe(header(file, {
+            pkg: pkg
+        }))
+        .pipe(gulp.dest('./dist/'))
+});
+
+gulp.task('default', ['development', 'wiredep', 'sass', 'config', 'server'], function () {
+    gulp.watch(input, ['sass']);
+});
+
+gulp.task('prod', ['production', 'header', 'server']);
 
