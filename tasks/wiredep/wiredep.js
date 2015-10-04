@@ -1,7 +1,7 @@
-module.exports = function (gulp, plugins) {
+module.exports = function (gulp, wiredep) {
     return function () {
         gulp.src('./public/index.html')
-            .pipe(plugins.wiredep({
+            .pipe(wiredep({
                 optional: 'configuration',
                 goes: 'here'
             }))

@@ -7904,3 +7904,7 @@ button.close {
     display: none !important;
   }
 }
+
+body {
+  color: blue;
+}
