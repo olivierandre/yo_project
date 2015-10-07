@@ -10,17 +10,6 @@
     var methodOverride = require('method-override');
     var router = express.Router();
     var server = require('http').createServer(app);
-    var io = require('socket.io')(server);
-    var count = 0;
-
-
-    io.on('connection', function (socket) {
-        socket.emit('send:message', {
-            firstName: 'Olivier',
-            lastName: 'Andre',
-            count: count += 1
-        });
-    });
 
     // configuration =================
     var port = process.env.PORT || 3000;

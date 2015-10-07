@@ -1,6 +1,6 @@
-# mean_project
+# yo_project
 
-My **MEAN** project!!
+My **YO** package!!
 
 ----------------------------------
 ### Table of contents
@@ -15,11 +15,6 @@ My **MEAN** project!!
 
 #### Dependencies
 
-- Bower
-```
-$ bower install
-```
-
 - NPM
 ```
 $ npm install
@@ -32,8 +27,7 @@ $ gulp
 ```
 
 #### Usage
-> go to localhost: 3000
-
+> Go to http://localhost:1337
 ------------------------------
 ## Version
 > 0.0.1

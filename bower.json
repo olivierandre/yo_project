@@ -1,14 +1,16 @@
 {
-  "name": "travel",
+  "name": "yo package",
   "version": "0.0.1",
   "authors": [
     "Olivier Andre <olivier.andre77@gmail.com>"
   ],
-  "description": "Blog travel",
+  "description": "webapp generator",
   "main": "./public/scripts/**/*.js",
   "keywords": [
-    "blog",
-    "travel"
+    "webapp",
+    "generator",
+    "sass",
+    "nodejs"
   ],
   "license": "MIT",
   "ignore": [
@@ -18,15 +20,5 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "angular": "~1.4.6",
-    "angular-animate": "~1.4.6",
-    "angular-bootstrap": "~0.13.4",
-    "angular-cookies": "~1.4.6",
-    "angular-messages": "~1.4.6",
-    "angular-sanitize": "~1.4.6",
-    "angular-touch": "~1.4.6",
-    "angular-ui-router": "ui-router#~0.2.15",
-    "bootstrap-sass": "~3.3.5"
-  }
+  "dependencies": {}
 }

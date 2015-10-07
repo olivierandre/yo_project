@@ -1,12 +1,12 @@
 {
-  "name": "travel",
+  "name": "yo package",
   "version": "0.0.1",
-  "description": "Blog travel",
+  "description": "webapp generator",
   "main": "server.js",
   "author": "Olivier André",
   "scripts": {
     "start": "gulp",
-    "postinstall": "bower install"
+    "postinstall": "bower install && gulp"
   },
   "dependencies": {
     "body-parser": "^1.14.0",
@@ -20,12 +20,9 @@
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.0.2",
-    "gulp-header": "^1.7.1",
     "gulp-load-plugins": "^0.10.0",
-    "gulp-ng-constant": "^1.1.0",
     "gulp-nodemon": "^2.0.4",
     "gulp-sass": "^2.0.4",
-    "run-sequence": "^1.1.4",
     "wiredep": "^2.2.2"
   }
 }

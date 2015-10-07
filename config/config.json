@@ -1,13 +1,6 @@
 {
   "dev": {
-    "mongo": {
-    }
   },
   "prod": {
-  },
-  "global": {
-    "angular": {
-      "name": "meanApp"
-    }
   }
 }
