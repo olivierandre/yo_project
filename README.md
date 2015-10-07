@@ -27,7 +27,8 @@ $ gulp
 ```
 
 #### Usage
-Go to http://localhost:1337
+> Go to http://localhost:1337
+
 ------------------------------
 ## Version
 > 0.0.1
