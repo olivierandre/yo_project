@@ -1,26 +1,19 @@
-(function () {
+(function() {
 
-    "use strict";
+	"use strict";
 
-    var gulp = require('gulp'),
-        plugins = require('gulp-load-plugins')(),
-        wiredep = require('wiredep').stream,
-        env = process.env.NODE_ENV || 'dev',
-        inputCSS = './stylesheets/**/*.scss',
-        output = './public/styles',
-        sassOptions = {
-            errLogToConsole: true,
-            outputStyle: 'expanded'
-        };
+	var gulp = require('./gulp')(['browserify', 'sass', 'nodemon']),
+		env = process.env.NODE_ENV || 'dev',
+		config = require('./config/config.json')[env];
 
-    gulp.task('sass', require('./tasks/sass/sass')(gulp, plugins, inputCSS, output, sassOptions));
-    gulp.task('wiredep', require('./tasks/wiredep/wiredep')(gulp, wiredep));
-	gulp.task('server', require('./tasks/nodemon/nodemon')(plugins));
+	gulp.task('default', ['browserify', 'sass']);
 
-    gulp.task('default', ['wiredep', 'sass', 'server'], function () {
-        gulp.watch(inputCSS, ['sass']);
-    });
+	gulp.task('server', ['default', 'nodemon', 'watch-public']);
 
-    //gulp.task('prod', ['header', 'server']);
+	gulp.task('watch-public', function() {
+		gulp.watch(config.sass.inputCss, ['sass']);
+	});
+
+	//gulp.task('prod', ['header', 'server']);
 
 }());
