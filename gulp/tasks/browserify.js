@@ -5,7 +5,7 @@ var gulp = require('gulp'),
 	config = require('../../config/config.json')[env];
 
 module.exports = function() {
-	return browserify(config.js.inputJs + 'app.js').bundle()
+	return browserify(config.js.inputJs + 'packages.js').bundle()
 		.pipe(source('bundle.js'))
 		.pipe(gulp.dest(config.js.outputJs));
 };

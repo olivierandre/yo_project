@@ -23,7 +23,7 @@ $ npm install
 #### Start
 - Launch server (dev mode)
 ```
-$ gulp serve
+$ gulp server
 ```
 
 #### Usage

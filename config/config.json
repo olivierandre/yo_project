@@ -6,9 +6,9 @@
 		},
 		"js": {
 			"inputJs": "./javascripts/",
+			"inputJsWatch": "./javascripts/**/*.js ",
 			"outputJs": "./public/scripts/"
-		}
-
+		},
 	},
 	"prod": {}
 }
