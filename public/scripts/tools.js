@@ -1,5 +1,5 @@
 
-Tools = (function() {
+var Tools = (function() {
 	'use strict';
 	var self = {};
 	self.test = function() {
