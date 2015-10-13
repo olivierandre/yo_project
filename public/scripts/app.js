@@ -1,17 +1,20 @@
-var $ = require('jquery');
-var app = (function() {
+//var $ = require('jquery');
+
+var App = (function(t) {
 	"use strict";
 
 	var self = {};
+
 	var privateFunction = function() {
-		return $('.yo');
+
 	};
 
 	self.publicFunction = function() {
+		t.test();
 		return privateFunction();
 	};
 
 	return self;
-}());
+}(Tools));
 
-console.log(app.publicFunction());
+App.publicFunction();

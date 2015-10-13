@@ -1,6 +1,6 @@
 {
   "name": "yo_package",
-  "version": "0.0.33",
+  "version": "0.0.39",
   "description": "webapp generator",
   "main": "server.js",
   "author": "Olivier André",

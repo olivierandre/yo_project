@@ -29,5 +29,4 @@ node_modules
 # Special
 .idea
 .DS_Store
-public/scripts/
 public/styles/
